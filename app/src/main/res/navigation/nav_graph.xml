@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/newsListFragment">
+    <fragment
+        android:id="@+id/newsListFragment"
+        android:name="com.example.newslistapp.NewsListFragment"
+        android:label="fragment_news_list"
+        tools:layout="@layout/fragment_news_list" >
+        <action
+            android:id="@+id/action_newsListFragment_to_readFragment"
+            app:destination="@id/readFragment">
+        <argument
+            android:name="urlForNews"
+            android:defaultValue=""
+            app:argType="string" />
+        </action>
+        <action
+            android:id="@+id/action_newsListFragment_to_savedArticles"
+            app:destination="@id/savedArticles" />
+    </fragment>
+    <fragment
+        android:id="@+id/readFragment"
+        android:name="com.example.newslistapp.ReadFragment"
+        android:label="fragment_read"
+        tools:layout="@layout/fragment_read" >
+        <action
+            android:id="@+id/action_readFragment_to_newsListFragment"
+            app:destination="@id/newsListFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/savedArticles"
+        android:name="com.example.newslistapp.SavedArticlesFragment"
+        android:label="fragment_saved_articles"
+        tools:layout="@layout/fragment_saved_articles" >
+        <action
+            android:id="@+id/action_savedArticles_to_newsListFragment"
+            app:destination="@id/newsListFragment" />
+    </fragment>
+</navigation>
